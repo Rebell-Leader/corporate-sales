@@ -36,6 +36,13 @@ PARSE_SPEC_CONTEXT_PROMPT = {
     Only include a field if it was mentioned in the text. DO NOT ouput in .md format"""
 }
 
+COMPARE_ADD_SPEC_CONTEXT_PROMPT = """You are a parser. Compare the user's request for additional specifications to the specifications in the spec sheet. Input is a string that describes additional specification. Output a JSON dictionary with the following fields:
+{
+    "satisfied": <true if all additional specs are in the spec sheet, false otherwise>,
+    "missing": <list of additional specs that are not in the spec sheet>
+}
+Only include a field if it was mentioned in the text. DO NOT ouput in .md format. Here is a content of the spec sheet: \n"""
+
 
 class LLM:
     def __init__(self, api_key, model, base_url="https://api.featherless.ai/v1"):
@@ -74,20 +81,27 @@ class LLM:
             return json.loads(input[7:-3])
         return json.loads(input)
     
+    
     def parse_input(self, input : str):
         cats = self.parse_category(input)
-        print("Categories: \n", cats)
         parsed = self.__conv_to_json(cats)
+        print("Categories: \n", parsed)
         for c in parsed:
             details = self.parse_specification(c["category"], input)
-            print(f"Details for {c['category']}: ", details)
             parsed_details = self.__conv_to_json(details)
             if len(parsed_details) == 0:
                 print(f"No details found for {c['category']}")
                 c["specs"] = {}
             else:
-                print(f"Details for {c['category']}: ", parsed_details)
+                print(f"Details for {c['category']}: \n", parsed_details)
                 c["specs"] = parsed_details
-        return json.dumps(parsed)
+        return parsed
         
-
+    def compare_add_spec_req(self, add_spec : str, spec_sheet : str):
+        response = self.send_request(COMPARE_ADD_SPEC_CONTEXT_PROMPT + spec_sheet, add_spec)
+        parsed = self.__conv_to_json(response)
+        if parsed["satisfied"]:
+            print("All additional specs are in the spec sheet")
+        else:
+            print("Some additional specs are not in the spec sheet: ", parsed["missing"])
+        pass
