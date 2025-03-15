@@ -1,13 +1,6 @@
 import json
 
 
-def calculate_similarity_score(query: dict, item: dict):
-    # Returns similarity score between the query and the item in the list
-    # based on their specs
-
-    return None
-
-
 def db_search(item: dict):
     # returns search on basic specs
 
@@ -15,10 +8,19 @@ def db_search(item: dict):
         lst = json.load(file)
 
     print(lst)
-    return None
+    matching_items = []
+    for db_item in lst:
+        if all(item.get(key) == db_item.get(key) for key in item):
+            matching_items.append(db_item)
+
+    return matching_items
 
 
-db_search(None)
+with open('sample-item.json', 'r') as file:
+    item = json.load(file)
+
+matching_items = db_search(item)
+print(json.dumps(matching_items, indent=4))
 
 
 def check_additional_specs(query, item):
