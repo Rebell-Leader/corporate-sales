@@ -1,0 +1,5 @@
+openai
+pandas
+selenium
+webdriver_manager
+bs4
