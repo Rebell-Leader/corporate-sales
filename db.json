@@ -1,6 +1,7 @@
 [
     {
         "category": "laptop",
+        "price" : 500,
         "specs": {
             "screen": "15.6 inch",
             "resolution": "1920x1080",
@@ -10,6 +11,7 @@
     },
     {
         "category": "monitor",
+        "price" : 200,
         "specs": {
             "screen": "27 inch",
             "resolution": "2560x1440",
@@ -19,6 +21,7 @@
     },
     {
         "category": "laptop",
+        "price" : 1200,
         "specs": {
             "screen": "13.3 inch",
             "resolution": "2560x1600",

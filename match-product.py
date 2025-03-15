@@ -11,7 +11,6 @@ def match_product():
     if not query:
         return jsonify({'error': 'Query is required'}), 400
 
-    methods = get_all_methods()
     best_choice = find_best_choice(query, methods)
 
     return jsonify(best_choice)
@@ -42,6 +41,7 @@ def get_feature(query: str):
 
 def db_search(item: dict):
     # returns search on basic specs
+    # return only exact matches
 
     with open('db.json', 'r') as file:
         lst = json.load(file)
