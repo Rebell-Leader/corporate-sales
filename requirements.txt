@@ -1,3 +1,4 @@
 openai
 flask
-json
+pymongo
+psycopg2-binary
