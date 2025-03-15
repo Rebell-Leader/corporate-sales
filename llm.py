@@ -1,19 +1,88 @@
 from openai import OpenAI
 import time
+import json
+
+PARSE_CAT_QUANTITY_CONTEXT_PROMPT = """You are a parser. Extract the 'monitor' and 'laptop' categories and their quantities from the user's request. Output as a JSON list of objects: 
+[{"category": "<cat_name>", "quantity": <number>}]."""
+
+PARSE_SPEC_CONTEXT_PROMPT = {
+"monitor":
+    """You are a parser. Extract any monitor specifications from the user’s text (resolution_horizontal, resolution_vertical, refreshrate, diagonal ,matrix_type). Output as a JSON dictionary with the following fields:
+    {
+        "res_hor": <horizontal resolution if mentioned>,
+        "res_ver": <vertical resolution if mentioned>,
+        "refreshrate": <refreshrate if mentioned>,
+        "type": <matrix type if mentioned>,
+        "diagonal": <diagonal size in inch if mentioned, just the number>,
+        "add_spec": <any other specs mentioned>
+    }
+    Only include a field if it was mentioned in the text. DO NOT ouput in .md format""",
+"laptop": 
+    """You are a parser. Extract any laptop specifications from the user’s text (resolution_horizontal, resolution_vertical, refreshrate, matrix_type, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
+    {
+        "res_hor": <horizontal resolution if mentioned>,
+        "res_ver": <vertical resolution if mentioned>,
+        "refreshrate": <refreshrate if mentioned>,
+        "type": <matrix type if mentioned>,
+        "diagonal": <diagonal size in inch if mentioned, just the number>,
+        "ram_size": <RAM size if mentioned, just the number>,
+        "storage_size": <storage size if mentioned, just the number>,
+        "gpu": <GPU name if mentioned>,
+        "cpu": <CPU name if mentioned>,
+        "battery": <battery size in Wh if mentioned, just the number>,
+        "op_sys": <OS name if mentioned>,
+        "add_spec": <any other specs not covered above>
+    }
+    Only include a field if it was mentioned in the text. DO NOT ouput in .md format"""
+}
+
 
 class LLM:
     def __init__(self, api_key, model, base_url="https://api.featherless.ai/v1"):
         self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.model = model
 
-    def send_messages(self, msgs):
+    def send_request_raw_response(self, sys_context, user_message):
         print("| Request sent")
         start_time = time.time()
+        msg = [
+            {"role": "system", "content": sys_context},
+            {"role": "user", "content": user_message}
+        ]
         response = self.client.chat.completions.create(
+            temperature=0.3,
             model=self.model,
-            messages=msgs
+            messages=msg
         )
         elapsed_time = time.time() - start_time
         print("| Request recieved, time elapsed: ", elapsed_time)
         return response.model_dump()
+
+    def send_request(self, sys_context, user_message):
+        return self.send_request_raw_response(sys_context, user_message)['choices'][0]['message']['content']
+
+    def parse_category(self, input : str):
+        response = self.send_request(PARSE_CAT_QUANTITY_CONTEXT_PROMPT, input)
+        return response
+
+    def parse_specification(self, category : str, input : str):
+        response = self.send_request(PARSE_SPEC_CONTEXT_PROMPT[category], input)
+        return response
     
+    def parse_input(self, input : str):
+        cats = self.parse_category(input)
+        print("Categories: \n", cats)
+        parsed = json.loads(cats)
+        for c in parsed:
+            details = self.parse_specification(c["category"], input)
+            print(f"Details for {c['category']}: ", details)
+            parsed_details = json.loads(details)
+            if len(parsed_details) == 0:
+                print(f"No details found for {c['category']}")
+                c["specs"] = {}
+            else:
+                print(f"Details for {c['category']}: ", parsed_details)
+                c["specs"] = parsed_details
+        return json.dumps(parsed)
+        
+
