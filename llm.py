@@ -11,18 +11,16 @@ PARSE_SPEC_CONTEXT_PROMPT = {
     {
         "res_hor": <horizontal resolution if mentioned>,
         "res_ver": <vertical resolution if mentioned>,
-        "refreshrate": <refreshrate if mentioned>,
+        "refreshrate": <refreshrate in Hz if mentioned, just the number>,
         "type": <matrix type if mentioned>,
         "diagonal": <diagonal size in inch if mentioned, just the number>,
         "add_spec": <any other specs mentioned>
     }
     Only include a field if it was mentioned in the text. DO NOT ouput in .md format""",
 "laptop": 
-    """You are a parser. Extract any laptop specifications from the user’s text (resolution_horizontal, resolution_vertical, refreshrate, matrix_type, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
+    """You are a parser. Extract any laptop specifications from the user’s text (display`s refreshrate, display`s matrix_type, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
     {
-        "res_hor": <horizontal resolution if mentioned>,
-        "res_ver": <vertical resolution if mentioned>,
-        "refreshrate": <refreshrate if mentioned>,
+        "refreshrate": <refreshrate in Hz if mentioned, just the number>,
         "type": <matrix type if mentioned>,
         "diagonal": <diagonal size in inch if mentioned, just the number>,
         "ram_size": <RAM size if mentioned, just the number>,
@@ -97,11 +95,12 @@ class LLM:
                 c["specs"] = parsed_details
         return parsed
         
-    def compare_add_spec_req(self, add_spec : str, spec_sheet : str):
+    def check_add_spec_req(self, add_spec : str, spec_sheet : str):
         response = self.send_request(COMPARE_ADD_SPEC_CONTEXT_PROMPT + spec_sheet, add_spec)
         parsed = self.__conv_to_json(response)
         if parsed["satisfied"]:
             print("All additional specs are in the spec sheet")
+            return True
         else:
             print("Some additional specs are not in the spec sheet: ", parsed["missing"])
-        pass
+            return False
