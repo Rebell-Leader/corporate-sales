@@ -1,48 +1,174 @@
 [
     {
         "category": "laptop",
-        "price": 1299,
+        "price": -1,
         "brand": "Dell",
         "model_name": "Latitude 5350",
+        "model_id": 0,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 8,
+            "storage": 256,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 5",
+            "battery": 42,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5350",
+        "model_id": 0,
         "specs": {
             "refreshrate": "60",
             "screen": "13.3",
             "ram": 16,
             "storage": 512,
             "gpu": "integrated",
-            "cpu": "Intel Core Ultra",
+            "cpu": "Intel Core Ultra 5",
             "battery": 54,
             "op_sys": "Windows 11"
         }
     },
     {
         "category": "laptop",
-        "price": 1399,
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5350",
+        "model_id": 0,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 32,
+            "storage": 1024,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 7",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+
+    {
+        "category": "laptop",
+        "price": -1,
         "brand": "Dell",
         "model_name": "Latitude 5450",
+        "model_id": 1,
         "specs": {
             "refreshrate": "60",
             "screen": "14",
             "ram": 16,
             "storage": 512,
             "gpu": "integrated",
-            "cpu": "Intel Core Ultra",
+            "cpu": "Intel Core Ultra 5",
             "battery": 54,
             "op_sys": "Windows 11"
         }
     },
+
     {
         "category": "laptop",
-        "price": 1499,
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5450",
+        "model_id": 1,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "14",
+            "ram": 16,
+            "storage": 1024,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 7",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+
+    {
+        "category": "laptop",
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5450",
+        "model_id": 1,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "14",
+            "ram": 32,
+            "storage": 1024,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 7",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+
+    {
+        "category": "laptop",
+        "price": -1,
         "brand": "Dell",
         "model_name": "Latitude 5550",
+        "model_id": 2,
         "specs": {
             "refreshrate": "60",
             "screen": "15.6",
             "ram": 16,
             "storage": 512,
             "gpu": "integrated",
-            "cpu": "Intel Core Ultra",
+            "cpu": "Intel Core Ultra 5",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5550",
+        "model_id": 2,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "15.6",
+            "ram": 32,
+            "storage": 512,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 7",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5550",
+        "model_id": 2,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "15.6",
+            "ram": 16,
+            "storage": 1024,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 5",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": -1,
+        "brand": "Dell",
+        "model_name": "Latitude 5550",
+        "model_id": 2,
+        "specs": {
+            "refreshrate": "60",
+            "screen": "15.6",
+            "ram": 32,
+            "storage": 1024,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra 7",
             "battery": 54,
             "op_sys": "Windows 11"
         }
