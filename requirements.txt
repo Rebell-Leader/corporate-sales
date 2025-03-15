@@ -1,5 +1,3 @@
 openai
-pandas
-selenium
-webdriver_manager
-bs4
+flask
+json
