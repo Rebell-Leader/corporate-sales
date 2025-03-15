@@ -52,9 +52,20 @@ def db_search(item: dict):
         query += " AND category = %s"
         params.append(item['category'])
 
+    if 'brand' in item:
+        query += " AND brand = %s"
+        params.append(item['brand'])
+
+    if 'model_name' in item:
+        query += " AND model_name = %s"
+        params.append(item['model_name'])
+
     if 'specs' in item and isinstance(item['specs'], dict):
         for key, value in item['specs'].items():
-            query += f" AND specs->>%s = %s"
+            if isinstance(value, (int, float)):
+                query += f" AND (specs->>%s)::numeric = %s"
+            else:
+                query += f" AND specs->>%s = %s"
             params.extend([key, value])
 
     print(cur.mogrify(query, params).decode('utf-8'))
