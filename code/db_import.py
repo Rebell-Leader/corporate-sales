@@ -14,18 +14,21 @@ def import_data_to_postgres():
         id SERIAL PRIMARY KEY,
         category VARCHAR(255),
         price INTEGER,
+        brand VARCHAR(255),
+        model_name VARCHAR(255),
+        model_id VARCHAR(255),
         specs JSONB
     )
     """)
 
-    with open('db.json', 'r') as file:
+    with open('res/db_laptops2.json', 'r') as file:
         data = json.load(file)
 
     if data:
         for item in data:
             cur.execute(
-                "INSERT INTO products (category, price, specs) VALUES (%s, %s, %s)",
-                (item.get('category'), item.get('price'),
+                "INSERT INTO products (category, price, brand, model_name, model_id, specs) VALUES (%s, %s, %s, %s, %s, %s)",
+                (item.get('category'), item.get('price'), item.get('brand'), item.get('model_name'), item.get('model_id'),
                  json.dumps(item.get('specs', {})))
             )
         print(f"Imported {len(data)} items in PostgreSQL.")

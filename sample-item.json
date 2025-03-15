@@ -1,9 +1,17 @@
 {
     "category": "laptop",
+    "price": 1299,
+    "brand": "Lenovo",
+    "model_name": "100w Gen 4",
+    "model_id" : "3",
     "specs": {
-        "screen": "15.6 inch",
-        "resolution": "1920x1080",
-        "processor": "Intel i7",
-        "ram": "16GB"
+        "refreshrate": "60",
+        "screen": "13.3",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "integrated",
+        "cpu": "Intel Processor N100",
+        "battery": 47,
+        "op_sys": "Windows 11"
     }
 }
