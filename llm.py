@@ -69,14 +69,19 @@ class LLM:
         response = self.send_request(PARSE_SPEC_CONTEXT_PROMPT[category], input)
         return response
     
+    def __conv_to_json(self, input : str):
+        if input.startswith("```"):
+            return json.loads(input[7:-3])
+        return json.loads(input)
+    
     def parse_input(self, input : str):
         cats = self.parse_category(input)
         print("Categories: \n", cats)
-        parsed = json.loads(cats)
+        parsed = self.__conv_to_json(cats)
         for c in parsed:
             details = self.parse_specification(c["category"], input)
             print(f"Details for {c['category']}: ", details)
-            parsed_details = json.loads(details)
+            parsed_details = self.__conv_to_json(details)
             if len(parsed_details) == 0:
                 print(f"No details found for {c['category']}")
                 c["specs"] = {}
