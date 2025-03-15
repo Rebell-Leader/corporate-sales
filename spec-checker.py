@@ -8,10 +8,17 @@ def calculate_similarity_score(query: dict, item: dict):
     return None
 
 
-def db_search():
+def db_search(item: dict):
     # returns search on basic specs
 
+    with open('db.json', 'r') as file:
+        lst = json.load(file)
+
+    print(lst)
     return None
+
+
+db_search(None)
 
 
 def check_additional_specs(query, item):

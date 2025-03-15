@@ -4,4 +4,14 @@ def get_text(query: str):
 
 def get_feature(query: str):
     # construct specs dictionary from the query
+
+    # structure:
+    # { 'query' : <full text of query>,
+    #   'category' : monitor/laptop,
+    #    'specs' : {
+    #       'screen' : ...,
+    #       'monitor' : ...
+    #     }
+    # }
+
     return None
