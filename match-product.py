@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import json
+import psycopg2
+import psycopg2.extras
 
 app = Flask(__name__)
 
@@ -16,8 +18,8 @@ def match_product():
     return jsonify(best_choice)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
 
 def get_text(query: str):
@@ -40,26 +42,49 @@ def get_feature(query: str):
 
 
 def db_search(item: dict):
-    # returns search on basic specs
-    # return only exact matches
+    conn = psycopg2.connect("dbname=corporate_sales")
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-    with open('db.json', 'r') as file:
-        lst = json.load(file)
+    query = "SELECT * FROM products WHERE 1=1"
+    params = []
 
-    print(lst)
-    matching_items = []
-    for db_item in lst:
-        if all(item.get(key) == db_item.get(key) for key in item):
-            matching_items.append(db_item)
+    if 'category' in item:
+        query += " AND category = %s"
+        params.append(item['category'])
 
-    return matching_items
+    if 'specs' in item and isinstance(item['specs'], dict):
+        for key, value in item['specs'].items():
+            query += f" AND specs->>%s = %s"
+            params.extend([key, value])
+
+    print(cur.mogrify(query, params).decode('utf-8'))
+
+    cur.execute(query, params)
+    matching_items = cur.fetchall()
+
+    result = []
+    for row in matching_items:
+        item_dict = dict(row)
+        if 'id' in item_dict:
+            del item_dict['id']
+        result.append(item_dict)
+
+    print(f"Found: {len(result)} items")
+    print(result)
+
+    cur.close()
+    conn.close()
+
+    return result
 
 
-with open('sample-item.json', 'r') as file:
-    item = json.load(file)
+with open('sample-item.json', 'r') as f:
+    sample_item = json.load(f)
 
-matching_items = db_search(item)
-print(json.dumps(matching_items, indent=4))
+test_item = sample_item
+
+matching_items = db_search(test_item)
+print(matching_items)
 
 
 def check_additional_specs(query, item):
