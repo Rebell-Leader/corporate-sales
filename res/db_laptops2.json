@@ -1,0 +1,121 @@
+[
+    {
+        "category": "laptop",
+        "price": 1299,
+        "brand": "Lenovo",
+        "model_name": "100w Gen 4",
+        "model_id" : "3",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 16,
+            "storage": 512,
+            "gpu": "integrated",
+            "cpu": "Intel Processor N100",
+            "battery": 47,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1399,
+        "brand": "Lenovo",
+        "model_name": "300w Yoga Gen 4",
+        "model_id" : "4",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "11.6",
+            "ram": 8,
+            "storage": 256,
+            "gpu": "integrated",
+            "cpu": "Intel Processor N100/N200",
+            "battery": 45,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1399,
+        "brand": "Lenovo",
+        "model_name": "300w Yoga Gen 4",
+        "model_id" : "5",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "11.6",
+            "ram": 8,
+            "storage": 256,
+            "gpu": "integrated",
+            "cpu": "Intel Processor N100/N200",
+            "battery": 45,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1499,
+        "brand": "Lenovo",
+        "model_name": "500w Yoga Gen 4",
+        "model_id": "6",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "12.2",
+            "ram": 8,
+            "storage": 256,
+            "gpu": "integrated Intel UHD",
+            "cpu": "Intel Processor N100/N200",
+            "battery": 45,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1899,
+        "brand": "Lenovo",
+        "model_name": "ThinkPad X1 Carbon Gen 11",
+        "model_id": "7",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "14.0",
+            "ram": 64,
+            "storage": 2048,
+            "gpu": "Intel Iris Xe Graphics",
+            "cpu": "Intel 13th Gen Core i7 P-series",
+            "battery": 57,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1599,
+        "brand": "Lenovo",
+        "model_name": "ThinkPad L13 Yoga Gen 4",
+        "model_id": "8",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 32,
+            "storage": 2048,
+            "gpu": "Intel Iris Xe Graphics",
+            "cpu": "13th Gen Intel Core i7 U-series",
+            "battery": 52,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1599,
+        "brand": "Lenovo",
+        "model_name": "13w Yoga Gen 2",
+        "model_id": "9",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 16,
+            "storage": 512,
+            "gpu": "integrated AMD",
+            "cpu": "AMD Ryzen 7000 series R7",
+            "battery": 51,
+            "op_sys": "Windows 11"
+        }
+    }
+]
