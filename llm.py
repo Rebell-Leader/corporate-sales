@@ -18,13 +18,12 @@ PARSE_SPEC_CONTEXT_PROMPT = {
     }
     Only include a field if it was mentioned in the text. DO NOT ouput in .md format""",
 "laptop": 
-    """You are a parser. Extract any laptop specifications from the user’s text (display`s refreshrate, display`s matrix_type, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
+    """You are a parser. Extract any laptop specifications from the user’s text (display`s refreshrate, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
     {
         "refreshrate": <refreshrate in Hz if mentioned, just the number>,
-        "type": <matrix type if mentioned>,
         "diagonal": <diagonal size in inch if mentioned, just the number>,
-        "ram_size": <RAM size if mentioned, just the number>,
-        "storage_size": <storage size if mentioned, just the number>,
+        "ram": <RAM size if mentioned, just the number>,
+        "storage": <storage size if mentioned, just the number>,
         "gpu": <GPU name if mentioned>,
         "cpu": <CPU name if mentioned>,
         "battery": <battery size in Wh if mentioned, just the number>,

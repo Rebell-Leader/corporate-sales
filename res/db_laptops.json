@@ -1,0 +1,50 @@
+[
+    {
+        "category": "laptop",
+        "price": 1299,
+        "brand": "Dell",
+        "model_name": "Latitude 5350",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "13.3",
+            "ram": 16,
+            "storage": 512,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1399,
+        "brand": "Dell",
+        "model_name": "Latitude 5450",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "14",
+            "ram": 16,
+            "storage": 512,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "laptop",
+        "price": 1499,
+        "brand": "Dell",
+        "model_name": "Latitude 5550",
+        "specs": {
+            "refreshrate": "60",
+            "screen": "15.6",
+            "ram": 16,
+            "storage": 512,
+            "gpu": "integrated",
+            "cpu": "Intel Core Ultra",
+            "battery": 54,
+            "op_sys": "Windows 11"
+        }
+    }
+]

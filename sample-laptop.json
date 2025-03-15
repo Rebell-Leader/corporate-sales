@@ -1,0 +1,16 @@
+{
+    "category": "laptop",
+    "price": 1000,
+    "brand": "Dell",
+    "model_name": "Inspiron 15",
+    "specs": {
+        "refreshrate": "60",
+        "screen": "15.6",
+        "ram": 16,
+        "storage": 512,
+        "gpu": "none",
+        "cpu": "Intel i7",
+        "battery": 60,
+        "op_sys": "Windows 11"
+    }
+}
