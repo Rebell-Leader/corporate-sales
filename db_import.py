@@ -8,6 +8,7 @@ def import_data_to_postgres():
     cur = conn.cursor()
 
     cur.execute("""
+                
     DROP TABLE IF EXISTS products;
     CREATE TABLE products (
         id SERIAL PRIMARY KEY,
