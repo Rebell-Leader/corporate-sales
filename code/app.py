@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import sqlite3
 from llm import LLM
-from db import db_search
+from db import db_search, import_data_to_sqlite, db_get_by_id
 from flask_cors import CORS
 
 key="rc_f8cf96bf43de3fde06f99a693f4d11e32d0c68a3bf3b7cdcaf851efec169d0b8"
@@ -19,21 +19,12 @@ def add_header(response):
 
 llm = LLM(key, model)
 
-# @app.route('/matchProduct', methods=['POST'])
-# def match_product():
-#     data = request.json
-#     query = data.get('query')
-#     if not query:
-#         return jsonify({'error': 'Query is required'}), 400
-#     result = match_product(query)
-#     pass
-
 @app.route('/extract-req', methods=['POST'])
 def extract_req():
     data = request.json
     input_txt = data.get('input')
     if not input_txt:
-        return jsonify({'error': 'Input text is required'}), 400
+        return {'error': 'Input text is required'}, 400
     llm_response = llm.parse_input(input_txt)
     return llm_response, 200
 
@@ -42,7 +33,7 @@ def match_product():
     data = request.json
     requirements = data.get('requirements')
     if not requirements:
-        return jsonify({'error': 'Requirements are needed'}), 400
+        return {'error': 'Requirements are needed'}, 400
     
     picked_items = []
 
@@ -59,6 +50,19 @@ def match_product():
                 break
     return picked_items, 200
 
+@app.route('/gen-email', methods=['POST'])
+def generate_email():
+    data = request.json
+    item_id = data.get('item_id')
+    if not item_id:
+        return {'error': 'Requirements are needed'}, 400
+    item = db_get_by_id(item_id)
+    email = item["email"]
+    email_content = llm.gen_email(item)
+    email_subject = f"RFQ for {item["model_name"]} for tender"
+    return {"email": email, "subject": email_subject, "content": email_content}, 200
+
+
 def check_additional_specs(add_spec, item):
     spec_file_path = 'res/specs/{}.md'.format(item['category'] + '_' + item['model_id'])
     spec_file = open(spec_file_path, 'r')
@@ -69,4 +73,5 @@ def check_additional_specs(add_spec, item):
 
 
 if __name__ == '__main__':
+    import_data_to_sqlite()
     app.run(debug=True, host='0.0.0.0', port=3001)

@@ -2,6 +2,7 @@
     {
         "category": "laptop",
         "price": 999,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -19,6 +20,7 @@
     {
         "category": "laptop",
         "price": 1199,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -36,6 +38,7 @@
     {
         "category": "laptop",
         "price": 1399,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -54,6 +57,7 @@
     {
         "category": "laptop",
         "price": 1299,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -72,6 +76,7 @@
     {
         "category": "laptop",
         "price": 1459,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -90,6 +95,7 @@
     {
         "category": "laptop",
         "price": 1599,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -108,6 +114,7 @@
     {
         "category": "laptop",
         "price": 1399,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -125,6 +132,7 @@
     {
         "category": "laptop",
         "price": 1599,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -142,6 +150,7 @@
     {
         "category": "laptop",
         "price": 1599,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -159,6 +168,7 @@
     {
         "category": "laptop",
         "price": 1799,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -176,6 +186,7 @@
     {
         "category": "laptop",
         "price": 359,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "100w Gen 4",
         "model_id" : 3,
@@ -193,6 +204,7 @@
     {
         "category": "laptop",
         "price": 699,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "300w Yoga Gen 4",
         "model_id" : 4,
@@ -210,6 +222,7 @@
     {
         "category": "laptop",
         "price": 799,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "300w Yoga Gen 4",
         "model_id" : 4,
@@ -227,6 +240,7 @@
     {
         "category": "laptop",
         "price": 799,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "500w Yoga Gen 4",
         "model_id": 5,
@@ -244,6 +258,7 @@
     {
         "category": "laptop",
         "price": 1459,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkPad X1 Carbon Gen 11",
         "model_id": 6,
@@ -261,6 +276,7 @@
     {
         "category": "laptop",
         "price": 1899,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkPad X1 Carbon Gen 11",
         "model_id": 6,
@@ -278,6 +294,7 @@
     {
         "category": "laptop",
         "price": 1599,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -295,6 +312,7 @@
     {
         "category": "laptop",
         "price": 1399,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -312,6 +330,7 @@
     {
         "category": "laptop",
         "price": 1459,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -329,6 +348,7 @@
     {
         "category": "laptop",
         "price": 750,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "13w Yoga Gen 2",
         "model_id": 8,
@@ -346,6 +366,7 @@
     {
         "category": "laptop",
         "price": 599,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "13w Yoga Gen 2",
         "model_id": 8,
@@ -363,6 +384,7 @@
     {
         "category": "monitor",
         "price": 99,
+        "email": "hello@dell.com",
         "brand": "Dell",
         "model_name": "DELL 23 MONITOR : E2318H",
         "model_id": 9,
@@ -377,6 +399,7 @@
     {
         "category": "monitor",
         "price": 249,
+        "email": "hello@lenovo.com",
         "brand": "Lenovo",
         "model_name": "ThinkVision T24m-20",
         "model_id": 10,
@@ -391,6 +414,7 @@
     {
         "category": "monitor",
         "price": 349,
+        "email": "hello@asusrog.com",
         "brand": "Asus",
         "model_name": "ROG STRIX XG32VQR",
         "model_id": 11,

@@ -41,6 +41,9 @@ COMPARE_ADD_SPEC_CONTEXT_PROMPT = """You are a parser. Compare the user's reques
 }
 Only include a field if it was mentioned in the text. DO NOT ouput in .md format. Here is a content of the spec sheet: \n"""
 
+GENERATE_EMAIL_CONTEXT_PROMPT = """
+You are an AI specialized in crafting formal business letters. We represent a company that wants to buy an item described by the JSON that user provides as an input. Produce a polite, concise, professionally structured email that states our intent to purchase, references the item's details, and closes with a formal sign-off.
+"""
 
 class LLM:
     def __init__(self, api_key, model, base_url="https://api.featherless.ai/v1"):
@@ -104,3 +107,8 @@ class LLM:
         else:
             print("Some additional specs are not in the spec sheet: ", parsed["missing"])
             return False
+
+    def gen_email(self, item : dict):
+        item_json = json.dumps(item)
+        response = self.send_request(GENERATE_EMAIL_CONTEXT_PROMPT, item_json)
+        return response

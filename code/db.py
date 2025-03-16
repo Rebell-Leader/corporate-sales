@@ -11,6 +11,7 @@ def import_data_to_sqlite():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             category TEXT,
             price INTEGER,
+            email TEXT,
             brand TEXT,
             model_name TEXT,
             model_id TEXT,
@@ -24,8 +25,8 @@ def import_data_to_sqlite():
     if data:
         for item in data:
             cur.execute(
-                "INSERT INTO products (category, price, brand, model_name, model_id, specs) VALUES (?, ?, ?, ?, ?, ?)",
-                (item.get('category'), item.get('price'), item.get('brand'), item.get('model_name'), item.get('model_id'),
+                "INSERT INTO products (category, price, email, brand, model_name, model_id, specs) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                (item.get('category'), item.get('price'), item.get('email'), item.get('brand'), item.get('model_name'), item.get('model_id'),
                  json.dumps(item.get('specs', {})))
             )
         print(f"Imported {len(data)} items into SQLite.")
@@ -40,12 +41,34 @@ def import_data_to_sqlite():
     cur.close()
     conn.close()
 
+def db_get_by_id(item_id: int):
+    conn = sqlite3.connect("corporate_sales.db")
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    query = "SELECT id, category, price, brand, model_name, model_id, specs FROM products WHERE id = ?"
+    params = [item_id]
+
+    cur.execute(query, params)
+    matching_items = cur.fetchall()
+
+    result = []
+    for row in matching_items:
+        row_dict = dict(row)
+        if 'id' in row_dict:
+            del row_dict['id']
+        result.append(row_dict)
+
+    cur.close()
+    conn.close()
+    return result[0]
+
 def db_search(item: dict):
     conn = sqlite3.connect("corporate_sales.db")
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
 
-    query = "SELECT * FROM products WHERE 1=1"
+    query = "SELECT id, category, price, brand, model_name, model_id, specs FROM products WHERE 1=1"
     params = []
 
     if 'category' in item:
