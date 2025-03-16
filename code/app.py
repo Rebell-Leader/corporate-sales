@@ -4,8 +4,9 @@ import sqlite3
 from llm import LLM
 from db import db_search, import_data_to_sqlite, db_get_by_id
 from flask_cors import CORS
+import os
+from dotenv import load_dotenv, dotenv_values
 
-key="rc_f8cf96bf43de3fde06f99a693f4d11e32d0c68a3bf3b7cdcaf851efec169d0b8"
 model = 'Qwen/Qwen2.5-72B-Instruct'
 
 app = Flask(__name__)
@@ -17,7 +18,10 @@ def add_header(response):
     response.headers['Content-Type'] = 'application/json'
     return response
 
+load_dotenv()
+key = os.getenv('API_KEY')
 llm = LLM(key, model)
+
 
 @app.route('/extract-req', methods=['POST'])
 def extract_req():
