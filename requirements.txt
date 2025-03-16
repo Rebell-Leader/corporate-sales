@@ -1,5 +1,4 @@
 openai
 flask
-pymongo
-psycopg2-binary
 flask-cors
+dotenv

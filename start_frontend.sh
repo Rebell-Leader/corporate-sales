@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
-cd /home/ratlinghitman/code/corporate-sales/frontend
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run production build
 npm run build
+
+# Start server
 npm run start

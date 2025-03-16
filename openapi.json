@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TenderMatcher RFQ Analyzer API",
+    "description": "API for extracting requirements from RFQs, matching products, and generating RFQ response emails.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/extract-req": {
+      "post": {
+        "summary": "Extract requirements from input text",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtractReqRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Extracted requirements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractReqResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing input"
+          }
+        }
+      }
+    },
+    "/match-product": {
+      "post": {
+        "summary": "Match extracted requirements to products in the database",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchProductRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Matching products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchProductResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing requirements"
+          }
+        }
+      }
+    },
+    "/gen-email": {
+      "post": {
+        "summary": "Generate RFQ email based on a matched product",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated email details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenEmailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing item_id"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExtractReqRequest": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "RFQ input text"
+          }
+        },
+        "required": [
+          "input"
+        ]
+      },
+      "ExtractReqResponse": {
+        "type": "object",
+        "description": "Parsed requirements extracted by the LLM"
+      },
+      "MatchProductRequest": {
+        "type": "object",
+        "properties": {
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "List of extracted requirements"
+          }
+        },
+        "required": [
+          "requirements"
+        ]
+      },
+      "MatchProductResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Matching product details"
+        }
+      },
+      "GenEmailRequest": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "description": "ID of the matched product"
+          }
+        },
+        "required": [
+          "item_id"
+        ]
+      },
+      "GenEmailResponse": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Recipient email"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Email subject"
+          },
+          "content": {
+            "type": "string",
+            "description": "Generated email content"
+          }
+        }
+      }
+    }
+  }
+}
