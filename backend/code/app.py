@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import json
-import sqlite3
 from llm import LLM
 from db import db_search, import_data_to_sqlite, db_get_by_id
 from flask_cors import CORS

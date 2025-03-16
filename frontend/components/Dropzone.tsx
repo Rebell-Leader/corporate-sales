@@ -36,11 +36,11 @@ export function Dropzone({ onFileAccepted, className }: DropzoneProps) {
       const files = e.dataTransfer.files;
       if (files && files.length > 0) {
         const file = files[0];
-        if (file.type === "application/pdf") {
+        if (file.type === "text/plain" || file.name.endsWith(".md") || file.name.endsWith(".txt")) {
           setFileName(file.name);
           onFileAccepted(file);
         } else {
-          alert("Please upload a PDF file");
+          alert("Please upload a MD or TXT file");
         }
       }
     },
@@ -52,11 +52,11 @@ export function Dropzone({ onFileAccepted, className }: DropzoneProps) {
       const files = e.target.files;
       if (files && files.length > 0) {
         const file = files[0];
-        if (file.type === "application/pdf") {
+        if (file.type === "text/plain" || file.name.endsWith(".md") || file.name.endsWith(".txt")) {
           setFileName(file.name);
           onFileAccepted(file);
         } else {
-          alert("Please upload a PDF file");
+          alert("Please upload a MD or TXT file");
         }
       }
     },
@@ -89,12 +89,12 @@ export function Dropzone({ onFileAccepted, className }: DropzoneProps) {
       }}
       role="button"
       tabIndex={0}
-      aria-label="Upload PDF file"
+      aria-label="Upload MD or TXT file"
     >
       <input
         ref={fileInputRef}
         type="file"
-        accept="application/pdf"
+        accept=".txt,.md"
         className="hidden"
         onChange={handleFileChange}
       />
@@ -110,7 +110,7 @@ export function Dropzone({ onFileAccepted, className }: DropzoneProps) {
         ) : (
           <>
             <p className="text-sm font-medium">
-              Drag and drop your tender notice PDF here
+              Drag and drop your tender notice MD/TXT here
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               or click to browse files
@@ -124,7 +124,7 @@ export function Dropzone({ onFileAccepted, className }: DropzoneProps) {
               })}
               type="button"
             >
-              Select PDF
+              Select MD/TXT
             </button>
           </>
         )}

@@ -1,0 +1,1 @@
+We as a software development company would like to buy 10 Laptops with Intel Core Ultra 7, 32 GB of RAM, security certification and a camera shutter. Also we need 20 monitors with atleast one HDMI input and resolution of QHD (2560*1440)

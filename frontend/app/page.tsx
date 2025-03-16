@@ -41,10 +41,10 @@ export default function Home() {
         // Navigate to the validation page
         router.push("/validate");
       } else {
-        setError(response.message || "Failed to extract criteria from the PDF");
+        setError(response.message || "Failed to extract criteria from the MD/TXT file");
       }
     } catch (err) {
-      console.error("Error processing PDF:", err);
+      console.error("Error processing MD/TXT file:", err);
       setError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
@@ -57,9 +57,9 @@ export default function Home() {
         <span className={title()}>Automatically&nbsp;</span>
         <span className={title()}>generate&nbsp;</span>
         <br />
-        <span className={title({ color: "violet" })}>RFQ responses</span>
+        <span className={title({ color: "violet" })}>RFQ proposals</span>
         <div className={subtitle({ class: "mt-4" })}>
-          Just drop the tender notice PDF and let our AI do the rest.
+          Just drop the tender notice in MD or TXT file and let our AI do the rest.
         </div>
       </div>
 
