@@ -70,7 +70,7 @@ def generate_email():
 
 def check_additional_specs(add_spec, item):
     root_dir = os.getenv('ROOT_FOLDER_PATH')
-    spec_file_path = root_dir + ('res/specs/{}.md'.format(item['category'] + '_' + item['model_id']))
+    spec_file_path = root_dir + ('backend/res/specs/{}.md'.format(item['category'] + '_' + item['model_id']))
     spec_file = open(spec_file_path, 'r')
     spec_sheet = spec_file.read()
     spec_file.close()

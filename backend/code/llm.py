@@ -21,7 +21,7 @@ PARSE_SPEC_CONTEXT_PROMPT = {
     """You are a parser. Extract any laptop specifications from the user’s text (display`s refreshrate, diagonal, ram_size, storage_size, gpu, cpu, battery, operating system). If laptop is an apple product, set operating system to be MacOS. Output as a JSON dictionary with the following fields:
     {
         "refreshrate": <refreshrate in Hz if mentioned, just the number>,
-        "diagonal": <diagonal size in inch if mentioned, just the number>,
+        "screen": <diagonal size in inch if mentioned, just the number>,
         "ram": <RAM size if mentioned, just the number>,
         "storage": <storage size if mentioned, just the number>,
         "gpu": <GPU name if mentioned>,
