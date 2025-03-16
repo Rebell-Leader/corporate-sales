@@ -37,6 +37,7 @@ COMPARE_ADD_SPEC_CONTEXT_PROMPT = """You are a parser. Compare the user's reques
 {
     "satisfied": <true if all additional specs are in the spec sheet, false otherwise>,
     "missing": <list of additional specs that are not in the spec sheet>
+    "reason": <reason for the result>
 }
 Only include a field if it was mentioned in the text. DO NOT ouput in .md format. Here is a content of the spec sheet: \n"""
 
@@ -78,7 +79,6 @@ class LLM:
             return json.loads(input[7:-3])
         return json.loads(input)
     
-    
     def parse_input(self, input : str):
         cats = self.parse_category(input)
         parsed = self.__conv_to_json(cats)
@@ -98,7 +98,7 @@ class LLM:
         response = self.send_request(COMPARE_ADD_SPEC_CONTEXT_PROMPT + spec_sheet, add_spec)
         parsed = self.__conv_to_json(response)
         if parsed["satisfied"]:
-            print("All additional specs are in the spec sheet")
+            print("All additional specs are in the spec sheet\n" + parsed["reason"])
             return True
         else:
             print("Some additional specs are not in the spec sheet: ", parsed["missing"])

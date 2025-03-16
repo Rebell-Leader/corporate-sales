@@ -1,7 +1,7 @@
 [
     {
         "category": "laptop",
-        "price": -1,
+        "price": 999,
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -18,7 +18,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1199,
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -35,7 +35,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1399,
         "brand": "Dell",
         "model_name": "Latitude 5350",
         "model_id": 0,
@@ -53,7 +53,7 @@
 
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1299,
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -71,7 +71,7 @@
 
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1459,
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -89,7 +89,7 @@
 
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1599,
         "brand": "Dell",
         "model_name": "Latitude 5450",
         "model_id": 1,
@@ -107,7 +107,7 @@
 
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1399,
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -124,7 +124,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1599,
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -141,7 +141,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1599,
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -158,7 +158,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1799,
         "brand": "Dell",
         "model_name": "Latitude 5550",
         "model_id": 2,
@@ -175,7 +175,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 359,
         "brand": "Lenovo",
         "model_name": "100w Gen 4",
         "model_id" : 3,
@@ -192,7 +192,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 699,
         "brand": "Lenovo",
         "model_name": "300w Yoga Gen 4",
         "model_id" : 4,
@@ -209,7 +209,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 799,
         "brand": "Lenovo",
         "model_name": "300w Yoga Gen 4",
         "model_id" : 4,
@@ -226,7 +226,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 799,
         "brand": "Lenovo",
         "model_name": "500w Yoga Gen 4",
         "model_id": 5,
@@ -243,7 +243,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1459,
         "brand": "Lenovo",
         "model_name": "ThinkPad X1 Carbon Gen 11",
         "model_id": 6,
@@ -260,7 +260,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1899,
         "brand": "Lenovo",
         "model_name": "ThinkPad X1 Carbon Gen 11",
         "model_id": 6,
@@ -277,7 +277,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1599,
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -294,7 +294,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1399,
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -311,7 +311,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 1459,
         "brand": "Lenovo",
         "model_name": "ThinkPad L13 Yoga Gen 4",
         "model_id": 7,
@@ -328,7 +328,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 750,
         "brand": "Lenovo",
         "model_name": "13w Yoga Gen 2",
         "model_id": 8,
@@ -345,7 +345,7 @@
     },
     {
         "category": "laptop",
-        "price": -1,
+        "price": 599,
         "brand": "Lenovo",
         "model_name": "13w Yoga Gen 2",
         "model_id": 8,
@@ -358,6 +358,34 @@
             "cpu": "AMD Ryzen 7000 series R7",
             "battery": 51,
             "op_sys": "Windows 11"
+        }
+    },
+    {
+        "category": "monitor",
+        "price": 99,
+        "brand": "Dell",
+        "model_name": "DELL 23 MONITOR : E2318H",
+        "model_id": 9,
+        "specs": {
+            "res_hor": 1920,
+            "res_ver": 1080,
+            "refreshrate": 60,
+            "type": "LED",
+            "diagonal": 23
+        }
+    },
+    {
+        "category": "monitor",
+        "price": 249,
+        "brand": "Lenovo",
+        "model_name": "ThinkVision T24m-20",
+        "model_id": 10,
+        "specs": {
+            "res_hor": 1920,
+            "res_ver": 1080,
+            "refreshrate": 60,
+            "type": "LED",
+            "diagonal": 23.8
         }
     }
 ]
