@@ -97,8 +97,9 @@ class LLM:
     def check_add_spec_req(self, add_spec : str, spec_sheet : str):
         response = self.send_request(COMPARE_ADD_SPEC_CONTEXT_PROMPT + spec_sheet, add_spec)
         parsed = self.__conv_to_json(response)
+        print(parsed)
         if parsed["satisfied"]:
-            print("All additional specs are in the spec sheet\n" + parsed["reason"])
+            print("All additional specs are in the spec sheet\n")
             return True
         else:
             print("Some additional specs are not in the spec sheet: ", parsed["missing"])

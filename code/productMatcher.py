@@ -3,11 +3,19 @@ import json
 import sqlite3
 from llm import LLM
 from db import db_search
+from flask_cors import CORS
 
 key="rc_f8cf96bf43de3fde06f99a693f4d11e32d0c68a3bf3b7cdcaf851efec169d0b8"
 model = 'Qwen/Qwen2.5-72B-Instruct'
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
+# Set default MIME type for all responses to application/json
+@app.after_request
+def add_header(response):
+    response.headers['Content-Type'] = 'application/json'
+    return response
 
 llm = LLM(key, model)
 
@@ -25,22 +33,16 @@ def extract_req():
     data = request.json
     input_txt = data.get('input')
     if not input_txt:
-        return jsonify({'error': 'Input text is required'})
+        return jsonify({'error': 'Input text is required'}), 400
     llm_response = llm.parse_input(input_txt)
     return llm_response, 200
-
-def extract_req_test(input_txt):
-    if not input_txt:
-        return jsonify({'error': 'Input text is required'})
-    llm_response = llm.parse_input(input_txt)
-    return llm_response
 
 @app.route('/match-product', methods=['POST'])
 def match_product():
     data = request.json
     requirements = data.get('requirements')
     if not requirements:
-        return jsonify({'error': 'Requirements are needed'})
+        return jsonify({'error': 'Requirements are needed'}), 400
     
     picked_items = []
 
@@ -49,30 +51,13 @@ def match_product():
         search_res = db_search(item)
         for res in search_res:
            add_spec = item['specs'].get('add_spec', None)
+           res['specs'] = json.loads(res['specs'])
            if add_spec:
                 if not check_additional_specs(add_spec, res):
                      continue
                 picked_items.append(res)
                 break
-    return picked_items
-
-def match_product_test(requirements):
-    if not requirements:
-        return jsonify({'error': 'Requirements are needed'})
-    
-    picked_items = []
-
-    for item in requirements:
-        print(item)
-        search_res = db_search(item)
-        for res in search_res:
-           add_spec = item['specs'].get('add_spec', None)
-           if add_spec:
-                if not check_additional_specs(add_spec, res):
-                     continue
-                picked_items.append(res)
-                break
-    return picked_items
+    return picked_items, 200
 
 def check_additional_specs(add_spec, item):
     spec_file_path = 'res/specs/{}.md'.format(item['category'] + '_' + item['model_id'])
@@ -82,3 +67,6 @@ def check_additional_specs(add_spec, item):
     response = llm.check_add_spec_req(add_spec, spec_sheet)
     return response
 
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=3001)
