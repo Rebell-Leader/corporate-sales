@@ -22,8 +22,8 @@ def import_data_to_sqlite():
     """)
 
     load_dotenv()
-    root_dir = os.getenv('ROOT_FOLDER_PATH')
-    with open(root_dir + 'backend/res/product_db.json', 'r') as file:
+    root_dir = os.getenv('BACKEND_ROOT_FOLDER_PATH')
+    with open(root_dir + 'res/product_db.json', 'r') as file:
         data = json.load(file)
 
     if data:
