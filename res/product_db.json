@@ -387,5 +387,19 @@
             "type": "LED",
             "diagonal": 23.8
         }
+    },
+    {
+        "category": "monitor",
+        "price": 349,
+        "brand": "Asus",
+        "model_name": "ROG STRIX XG32VQR",
+        "model_id": 11,
+        "specs": {
+            "res_hor": 2560,
+            "res_ver": 1440,
+            "refreshrate": 144,
+            "type": "VA",
+            "diagonal": 31.5
+        }
     }
 ]
