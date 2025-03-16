@@ -57,6 +57,7 @@ def generate_email():
     if not item_id:
         return {'error': 'Requirements are needed'}, 400
     item = db_get_by_id(item_id)
+    print(item)
     email = item["email"]
     email_content = llm.gen_email(item)
     email_subject = f"RFQ for {item["model_name"]} for tender"

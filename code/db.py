@@ -46,7 +46,7 @@ def db_get_by_id(item_id: int):
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
 
-    query = "SELECT id, category, price, brand, model_name, model_id, specs FROM products WHERE id = ?"
+    query = "SELECT category, price, email, brand, model_name, specs FROM products WHERE id = ?"
     params = [item_id]
 
     cur.execute(query, params)
