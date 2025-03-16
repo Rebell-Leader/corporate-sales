@@ -4,6 +4,9 @@
 
 This project provides a complete solution for analyzing PDF tender notices, extracting relevant requirements, and automatically generating personalized RFQ (Request for Quotation) responses. It consists of a Python-based backend and a Next.js (React) frontend, both designed to be easy to install and operate.
 
+![TenderMatcher Flowchart](mermaid-diagram-2025-03-16-140307.png)
+
+
 ## Features
 
 • Drag-and-drop PDF extraction  
