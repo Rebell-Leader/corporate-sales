@@ -1,8 +1,6 @@
 import json
 import sqlite3
 import os
-from dotenv import load_dotenv
-
 def import_data_to_sqlite():
     conn = sqlite3.connect("corporate_sales.db")
     cur = conn.cursor()
