@@ -11,7 +11,7 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 • Minimal configuration required  
 
 ## Tech Stack
-• Python backend: parses PDFs, processes requests, exposes API endpoints
+• Python backend with Flask: parses PDFs, processes requests, exposes API endpoints
 • OpenAI-compatible API: handles LLM interaction to analyze requirements in RFQ and prepare a personalized and detailed response (for the demo, Featherless API provider is used)   
 • Next.js (React) frontend: offers a user interface for uploading PDFs, validating extracted criteria, and sending emails  
 • HeroUI: modern React UI components for styling and UI interactions  
