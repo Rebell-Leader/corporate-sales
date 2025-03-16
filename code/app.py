@@ -64,7 +64,7 @@ def generate_email():
     print(item)
     email = item["email"]
     email_content = llm.gen_email(item)
-    email_subject = f"RFQ for {item["model_name"]} for tender"
+    email_subject = ("RFQ for {} for tender").format(item["model_name"])
     return {"email": email, "subject": email_subject, "content": email_content}, 200
 
 
