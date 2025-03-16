@@ -50,8 +50,7 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 
 • backend/ — Python code for parsing requirements and returning recommendations  
 • frontend/ — Next.js, TypeScript, and HeroUI code  
-• backend/res/ — Example laptop & monitor specs for demonstration  
-• scripts/ — Startup helper scripts  
+• backend/res/ — Example laptop & monitor specs for demonstration
 • README.md — Project documentation
 
 ## Using the Application
