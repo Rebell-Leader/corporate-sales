@@ -7,4 +7,4 @@ export $(grep -v '^#' .env | xargs)
 pip install -r requirements.txt
 
 # Start app
-python code/app.py
+python backend/code/app.py
