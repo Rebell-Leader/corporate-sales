@@ -13,13 +13,15 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 • Minimal configuration required
 
 ## Tech Stack
+
 • Python backend with Flask: parses PDFs, processes requests, exposes API endpoints
-• OpenAI-compatible API: handles LLM interaction to analyze requirements in RFQ and prepare a personalized and detailed response (for the demo, Featherless API provider is used)   
+• OpenAI-compatible API: handles LLM interaction to analyze requirements in RFQ and prepare a personalized and detailed response (for the demo, Featherless API provider is used)  
 • Next.js (React) frontend: offers a user interface for uploading PDFs, validating extracted criteria, and sending emails  
 • HeroUI: modern React UI components for styling and UI interactions  
 • Tailwind CSS: utility-first CSS framework  
 • ESLint & Prettier: formatting and linting  
 • Typescript: type-safe development
+• SQLite: database for storing user data
 
 ## Installation & Setup
 
@@ -28,6 +30,8 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 • Node.js >= 16  
 • Python >= 3.10  
 • Bash-compatible shell (for startup scripts)
+• Featherless API key
+• SQLite installation (for the demo, SQLite is used)
 
 ### 2. Backend Setup
 
@@ -52,21 +56,23 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 
 ## Using the Application
 
-1. Upload a tender PDF in the main interface.  
-2. Review and update automatically extracted requirements under “Validate.”  
-3. Click “Next” to review suggestions on the “Processing” page.  
+1. Upload a tender PDF in the main interface.
+2. Review and update automatically extracted requirements under “Validate.”
+3. Click “Next” to review suggestions on the “Processing” page.
 4. Finalize & send generated RFQ emails on the “Email” page.
 
 ## API Endpoints
 
-1. POST /api/extract — Accepts a PDF file, and returns parsed requirements.  
-2. POST /api/criteria — Accepts and processes user-updated criteria.  
+1. POST /api/extract — Accepts a PDF file, and returns parsed requirements.
+2. POST /api/criteria — Accepts and processes user-updated criteria.
 3. POST /api/emails — Generates & sends emails based on recommendations.
 
 ## Contributing
-1. Fork the repository and create your branch.  
-2. Commit changes following conventional commits.  
-3. Submit pull requests for review.  
+
+1. Fork the repository and create your branch.
+2. Commit changes following conventional commits.
+3. Submit pull requests for review.
 
 ## License
+
 Distributed under the BSD 3-Clause License. For details, see [LICENSE](./LICENSE).
