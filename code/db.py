@@ -1,5 +1,7 @@
 import json
 import sqlite3
+import os
+from dotenv import load_dotenv
 
 def import_data_to_sqlite():
     conn = sqlite3.connect("corporate_sales.db")
@@ -19,7 +21,9 @@ def import_data_to_sqlite():
         )
     """)
 
-    with open('res/product_db.json', 'r') as file:
+    load_dotenv()
+    root_dir = os.getenv('ROOT_FOLDER_PATH')
+    with open(root_dir + 'res/product_db.json', 'r') as file:
         data = json.load(file)
 
     if data:

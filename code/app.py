@@ -5,7 +5,7 @@ from llm import LLM
 from db import db_search, import_data_to_sqlite, db_get_by_id
 from flask_cors import CORS
 import os
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 model = 'Qwen/Qwen2.5-72B-Instruct'
 
@@ -69,7 +69,8 @@ def generate_email():
 
 
 def check_additional_specs(add_spec, item):
-    spec_file_path = 'res/specs/{}.md'.format(item['category'] + '_' + item['model_id'])
+    root_dir = os.getenv('ROOT_FOLDER_PATH')
+    spec_file_path = root_dir + ('res/specs/{}.md'.format(item['category'] + '_' + item['model_id']))
     spec_file = open(spec_file_path, 'r')
     spec_sheet = spec_file.read()
     spec_file.close()
