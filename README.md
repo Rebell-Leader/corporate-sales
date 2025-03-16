@@ -5,12 +5,14 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 
 ## Features
 • Drag-and-drop PDF extraction  
-• Automated requirement parsing and summarization  
+• Automated requirement parsing and summarization
+• Personalized RFQ proposal preparation
 • Dynamic recommendation engine powered by a Node/Next.js frontend  
 • Minimal configuration required  
 
 ## Tech Stack
-• Python backend: parses PDFs, processes requests, exposes API endpoints  
+• Python backend: parses PDFs, processes requests, exposes API endpoints
+• OpenAI-compatible API: handles LLM interaction to analyze requirements in RFQ and prepare a personalized and detailed response (for the demo, Featherless API provider is used)   
 • Next.js (React) frontend: offers a user interface for uploading PDFs, validating extracted criteria, and sending emails  
 • HeroUI: modern React UI components for styling and UI interactions  
 • Tailwind CSS: utility-first CSS framework  
@@ -45,11 +47,11 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 ## Using the Application
 1. Upload a tender PDF in the main interface.  
 2. Review and update automatically extracted requirements under “Validate.”  
-3. Click “Next” to review suggestions in the “Processing” page.  
-4. Finalize & send generated RFQ emails in the “Email” page.
+3. Click “Next” to review suggestions on the “Processing” page.  
+4. Finalize & send generated RFQ emails on the “Email” page.
 
 ## API Endpoints
-1. POST /api/extract — Accepts a PDF file, returns parsed requirements.  
+1. POST /api/extract — Accepts a PDF file, and returns parsed requirements.  
 2. POST /api/criteria — Accepts and processes user-updated criteria.  
 3. POST /api/emails — Generates & sends emails based on recommendations.
 
@@ -59,9 +61,10 @@ This project provides a complete solution for analyzing PDF tender notices, extr
 • Next.js 15 (React 18): Server components, file-based routing  
 • TypeScript 5.6: type definitions and improved DX  
 • Python: main logic for PDF parsing (configurable in app.py)
+• OpenAI API: LLM interaction to analyze the parsed RFQ, and generate a structured and reasonable proposal to desired suppliers
 
 ## Contributing
-1. Fork repository and create your branch.  
+1. Fork the repository and create your branch.  
 2. Commit changes following conventional commits.  
 3. Submit pull requests for review.  
 
